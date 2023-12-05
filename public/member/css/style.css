@@ -1,0 +1,72 @@
+:root {
+	--primary: #1e87f0;
+	--secondary: #e74c3c;
+	--light: #ecf0f1;
+	--white: #ffffff;
+}
+
+.moba-text-primary {
+	color: var(--primary) !important;
+}
+
+.moba-text-secondary {
+	color: var(--secondary);
+}
+
+.nav {
+	position: absolute;
+	top: 15px;
+	z-index: 99;
+	left: 0;
+	right: 0;
+}
+
+.nav.uk-box-shadow-medium {
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	/* Add shadow styles */
+}
+
+.nav .uk-navbar-nav>li>a {
+	color: #252525 !important;
+}
+
+.nav .uk-navbar-nav>li.uk-active>a {
+	color: #3498db !important;
+
+}
+
+.uk-sticky-placeholder {
+	height: 0 !important;
+}
+
+.top-wrap::before,
+.overlay-wrap::before {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	content: '';
+	z-index: 1;
+	background: var(--white);
+}
+
+.top-wrap-height {
+	height: 80vh;
+	min-height: 460px;
+	transition: height 0.25s;
+}
+
+.top-container {
+	z-index: 2;
+}
+
+.uk-logo img {
+	height: 38px;
+}
+
+.subtitle-text {
+	font-size: 1.2em;
+	opacity: 0.7;
+	font-weight: 300;
+}
