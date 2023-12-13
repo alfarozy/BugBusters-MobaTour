@@ -9,7 +9,8 @@
     <li><a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Registrasi
             turnamen</a></li>
     <hr>
-    <li><a href="#"><span data-uk-icon="icon: sign-out" class="uk-margin-small-right"></span>Logout</a>
+    <li><a href="{{ route('logout') }}"><span data-uk-icon="icon: sign-out"
+                class="uk-margin-small-right"></span>Logout</a>
     </li>
 
 </ul>

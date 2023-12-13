@@ -23,19 +23,27 @@
             @endif
 
             <!-- Form login menggunakan kelas UIkit -->
-            <form class="uk-form-stacked">
-
+            <form class="uk-form-stacked" method="post" accept="{{ route('login') }}">
+                @csrf
                 <div class="uk-margin">
                     <label class="uk-form-label" for="full_name">Nama Lengkap</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="full_name" type="text" placeholder="Nama Lengkap">
+                        <input class="uk-input " name="name" id="full_name" type="text" placeholder="Nama Lengkap"
+                            value="{{ old('name') }}">
+                        @error('name')
+                            <small class="uk-text-small uk-text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="uk-margin">
                     <label class="uk-form-label" for="Email">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="Email" type="email" placeholder="Email">
+                        <input class="uk-input " id="Email" name="email" type="email" placeholder="Email"
+                            value="{{ old('email') }}">
+                        @error('email')
+                            <small class="uk-text-small uk-text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
 
@@ -43,9 +51,13 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="password" type="password" placeholder="Password">
+                        <input class="uk-input" id="password" name="password" type="password" placeholder="Password">
+                        @error('password')
+                            <small class="uk-text-small uk-text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
+
 
                 <!-- Tombol Login -->
                 <div class="uk-margin">
@@ -56,7 +68,7 @@
                 <div class="uk-grid-small uk-child-width-expand@s
 uk-text-center" uk-grid>
                     <div>
-                        <a href="#" class="uk-link-muted">Login sekarang</a>
+                        <a href="{{ route('login') }}" class="uk-link-muted">Login sekarang</a>
                     </div>
                 </div>
             </form>

@@ -24,12 +24,12 @@
                 </div>
             @endif
 
-            <form class="uk-form-stacked">
-
+            <form class="uk-form-stacked" method="POST" action="{{ route('forgetpassword.send') }}">
+                @csrf
                 <div class="uk-margin">
                     <label class="uk-form-label" for="Email">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="Email" type="email" placeholder="Email">
+                        <input class="uk-input" id="Email" name="email" type="email" placeholder="Email">
                     </div>
                 </div>
                 <!-- Tombol Login -->
@@ -41,7 +41,7 @@
                 <div class="uk-grid-small uk-child-width-expand@s
 uk-text-center" uk-grid>
                     <div>
-                        <a href="#" class="uk-link-muted">Login sekarang</a>
+                        <a href="{{ route('login') }}" class="uk-link-muted">Login sekarang</a>
                     </div>
                 </div>
             </form>

@@ -23,19 +23,27 @@
                 </div>
             @endif
 
-            <form class="uk-form-stacked">
-
+            <form class="uk-form-stacked" method="POST" action="{{ route('update.password') }}">
+                @csrf
+                @method('put')
+                <input type="hidden" name="token" value="{{ request()->token }}">
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
                         <input class="uk-input" id="password" name="password" type="password" placeholder="Password">
+                        @error('password')
+                            <small class="uk-text-small uk-text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
                 <div class="uk-margin">
                     <label class="uk-form-label" for="confirm_password">Konfirmasi Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="confirm_password" name="confirm_password" type="confirm_password"
+                        <input class="uk-input" id="confirm_password" name="confirm_password" type="password"
                             placeholder="Password">
+                        @error('confirm_password')
+                            <small class="uk-text-small uk-text-danger">{{ $message }}</small>
+                        @enderror
                     </div>
                 </div>
                 <!-- Tombol Login -->

@@ -31,7 +31,15 @@
                             <li class="uk-active"><a href="">Beranda</a></li>
                             <li><a href="#about">Tentang kami</a></li>
                             <li><a href="">Turnamen</a></li>
-                            <li><a class="uk-button" href="">Login</a></li>
+
+                            <li>
+                                @if (auth()->check())
+                                    <a class="uk-button" href="{{ route('dashboard.index') }}">Dashboard</a>
+                                @else
+                                    <a class="uk-button" href="{{ route('login') }}">Login</a>
+                                @endif
+
+                            </li>
                         </ul>
                         <a class="moba-text-primary uk-navbar-toggle uk-navbar-item uk-hidden@s" data-uk-toggle
                             data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
