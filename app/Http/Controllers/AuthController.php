@@ -55,6 +55,22 @@ class AuthController extends Controller
         }
     }
 
+    public function setPassword()
+    {
+        return view('auth.set-password');
+    }
+    public function setPasswordAct(Request $request)
+    {
+
+        $request->validate([
+            'password' => 'required|min:3',
+        ], [
+            '*.required' => 'Bidang ini wajib'
+        ]);
+        User::where('id', auth()->id())->update(['password' => bcrypt($request->password)]);
+
+        return redirect()->route('dashboard.index')->with('success', 'Selamat datang, Moba Player');
+    }
     public function login()
     {
         return view('auth.login');

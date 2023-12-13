@@ -21,7 +21,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 //> dashboard
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->middleware(['checkGoogleRegister'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
@@ -30,6 +30,8 @@ Route::prefix('dashboard/admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 });
 
+Route::get('auth/set-password', [AuthController::class, 'setPassword'])->name('login.google.setPassword');
+Route::post('auth/set-password', [AuthController::class, 'setPasswordAct'])->name('login.google.setPassword');
 Route::prefix('auth')->group(function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
     Route::post('login', [AuthController::class, 'loginAct'])->name('login');
