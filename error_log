@@ -1,0 +1,16 @@
+[12-Dec-2023 20:02:17 America/New_York] PHP Warning:  require(/home/dikavdtb/BugBusters-MobaTour/vendor/composer/../../app/Helpers/Helpers.php): Failed to open stream: No such file or directory in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php on line 55
+[12-Dec-2023 20:02:17 America/New_York] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dikavdtb/BugBusters-MobaTour/vendor/composer/../../app/Helpers/Helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php:55
+Stack trace:
+#0 /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php(38): composerRequire33a0d5fa271fbcfd60fcceda8853200e()
+#1 /home/dikavdtb/BugBusters-MobaTour/vendor/autoload.php(25): ComposerAutoloaderInit33a0d5fa271fbcfd60fcceda8853200e::getLoader()
+#2 /home/dikavdtb/BugBusters-MobaTour/artisan(18): require('/home/dikavdtb/...')
+#3 {main}
+  thrown in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php on line 55
+[12-Dec-2023 20:02:35 America/New_York] PHP Warning:  require(/home/dikavdtb/BugBusters-MobaTour/vendor/composer/../../app/Helpers/Helpers.php): Failed to open stream: No such file or directory in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php on line 55
+[12-Dec-2023 20:02:35 America/New_York] PHP Fatal error:  Uncaught Error: Failed opening required '/home/dikavdtb/BugBusters-MobaTour/vendor/composer/../../app/Helpers/Helpers.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php:55
+Stack trace:
+#0 /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php(38): composerRequire33a0d5fa271fbcfd60fcceda8853200e()
+#1 /home/dikavdtb/BugBusters-MobaTour/vendor/autoload.php(25): ComposerAutoloaderInit33a0d5fa271fbcfd60fcceda8853200e::getLoader()
+#2 /home/dikavdtb/BugBusters-MobaTour/artisan(18): require('/home/dikavdtb/...')
+#3 {main}
+  thrown in /home/dikavdtb/BugBusters-MobaTour/vendor/composer/autoload_real.php on line 55
