@@ -29,12 +29,14 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="Email">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="Email" name="email" type="email" placeholder="Email">
+                        <input class="uk-input uk-border-rounded" id="Email" name="email" type="email"
+                            placeholder="Email">
                     </div>
                 </div>
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Submit</button>
+                    <button class="uk-button  uk-border-rounded uk-button  uk-button-primary uk-width-1-1"
+                        type="submit">Submit</button>
                 </div>
 
                 <hr>

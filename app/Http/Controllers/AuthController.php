@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\MailActivationRegisterEmail;
+use App\Models\Admin;
 use App\Models\PasswordResset;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -129,5 +130,32 @@ class AuthController extends Controller
             Mail::to($request->email)->send(new MailActivationRegisterEmail($token));
         }
         return redirect()->route('login')->with('success', 'Pendaftaran berhasil, silahkan periksa email untuk aktivasi');
+    }
+
+    //> login admin
+    public function loginAdmin()
+    {
+        return view('auth.admin.login');
+    }
+
+    public function loginAdminAct(Request $request)
+    {
+
+        if ($request->email && $request->password) {
+
+            $user = Admin::whereEmail($request->email)->first();
+            if ($user && Hash::check($request->password, $user->password)) {
+
+                if ($user->is_active == 0) {
+                    return redirect()->route('login.admin')->with('error', '<b>Login gagal</b>, Akun anda belum aktif');
+                }
+                Auth::guard('admin')->login($user);
+                return redirect()->route('dashboard.index.admin');
+            } else {
+                return redirect()->route('login.admin')->with('error', '<b>Login gagal</b>, Email atau password salah');
+            }
+        } else {
+            return redirect()->route('login.admin')->with('error', 'Email dan password wajib');
+        }
     }
 }

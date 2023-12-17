@@ -23,12 +23,13 @@ uk-text-center">
             @endif
 
             <!-- Form login menggunakan kelas UIkit -->
-            <form class="uk-form-stacked">
-
+            <form class="uk-form-stacked" method="POST" action="{{ route('login.admin') }}">
+                @csrf
                 <div class="uk-margin">
                     <label class="uk-form-label" for="Email">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="Email" type="email" placeholder="Email">
+                        <input class="uk-input uk-border-rounded" id="Email" name="email" type="email"
+                            placeholder="Email">
                     </div>
                 </div>
 
@@ -36,13 +37,15 @@ uk-text-center">
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="password" type="password" placeholder="Password">
+                        <input class="uk-input uk-border-rounded" id="password" name="password" type="password"
+                            placeholder="Password">
                     </div>
                 </div>
 
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit">Login</button>
+                    <button class="uk-button  uk-border-rounded uk-button  uk-border-rounded-secondary uk-width-1-1"
+                        type="submit">Login</button>
                 </div>
             </form>
         </div>

@@ -30,7 +30,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="password" name="password" type="password" placeholder="Password">
+                        <input class="uk-input uk-border-rounded" id="password" name="password" type="password"
+                            placeholder="Password">
                         @error('password')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -39,8 +40,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="confirm_password">Konfirmasi Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="confirm_password" name="confirm_password" type="password"
-                            placeholder="Password">
+                        <input class="uk-input uk-border-rounded" id="confirm_password" name="confirm_password"
+                            type="password" placeholder="Password">
                         @error('confirm_password')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -48,7 +49,8 @@
                 </div>
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Update password</button>
+                    <button class="uk-button  uk-border-rounded uk-button  uk-button-primary uk-width-1-1"
+                        type="submit">Update password</button>
                 </div>
 
             </form>

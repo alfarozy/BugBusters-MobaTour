@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -18,16 +19,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/tournament', [HomeController::class, 'tournament'])->name('home.tournament');
+Route::get('/tournament/{slug}', [HomeController::class, 'detailTournament'])->name('home.tournament');
 
 
-//> dashboard
-Route::prefix('dashboard')->middleware(['checkGoogleRegister'])->group(function () {
+//> dashboard member
+Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
 //> dashboard admin
-Route::prefix('dashboard/admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index.admin');
+
+    Route::resource('admin', AdminController::class);
+    Route::get('admin/setStatus/{id}', [AdminController::class, 'setStatus'])->name('admin.setActive');
 });
 
 Route::get('auth/set-password', [AuthController::class, 'setPassword'])->name('login.google.setPassword');
@@ -55,4 +61,16 @@ Route::prefix('auth')->group(function () {
         request()->session()->regenerateToken();
         return redirect()->route('login');
     })->name('logout');
+});
+
+Route::prefix('auth/admin')->group(function () {
+    Route::get('login', [AuthController::class, 'loginAdmin'])->name('login.admin');
+    Route::post('login', [AuthController::class, 'loginAdminAct'])->name('login.admin');
+    Route::get('logout', function () {
+        Auth()->guard('admin')->logout();
+        request()->session()->invalidate();
+        request()->session()->flush();
+        request()->session()->regenerateToken();
+        return redirect()->route('login.admin');
+    })->name('logout.admin');
 });

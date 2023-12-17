@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard @yield('title')</title>
+    <title>Dashboard - @yield('title')</title>
     <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
@@ -18,38 +18,38 @@
         }
 
         .bg-sidebar {
-            background: #2c2d2e;
+            background: #3d68ff;
         }
 
         .cta-btn {
-            color: #2c2d2e;
+            color: #3d68ff;
         }
 
         .upgrade-btn {
-            background: #2c2d2e;
+            background: #1947ee;
         }
 
         .upgrade-btn:hover {
-            background: #2c2d2e;
+            background: #0038fd;
         }
 
         .active-nav-link {
-            background: #2c2d2e;
+            background: #1947ee;
         }
 
         .nav-item:hover {
-            background: #2c2d2e;
+            background: #1947ee;
         }
 
         .account-link:hover {
-            background: #2c2d2e;
+            background: #3d68ff;
         }
     </style>
 </head>
 
 <body class="bg-gray-100 font-family-karla flex">
 
-    @include('layouts.dashboard.sidebar')
+    @include('layouts.member.sidebar')
 
     <div class="relative w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
@@ -81,7 +81,7 @@
 
             <!-- Dropdown Nav -->
             <nav :class="isOpen ? 'flex' : 'hidden'" class="flex flex-col pt-4">
-                @include('layouts.dashboard.menu')
+                @include('layouts.member.menu')
 
             </nav>
             <!-- <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">

@@ -1,34 +1,19 @@
-@extends('layouts.dashboard')
+@extends('layouts.member')
 @section('title', 'Moba tourney')
 @section('content')
     <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="bg-white rounded-lg shadow p-4">
-                <h2 class="text-xl font-bold mb-2">Pengguna</h2>
+                <h2 class="text-xl font-bold mb-2">Turnamen diikuti</h2>
                 <p class="text-gray-700">2.134</p>
             </div>
             <div class="bg-white rounded-lg shadow p-4">
-                <h2 class="text-xl font-bold mb-2">Turnamen</h2>
-                <p class="text-gray-700">2.134</p>
-            </div>
-            <div class="bg-white rounded-lg shadow p-4">
-                <h2 class="text-xl font-bold mb-2">Registrasi turnamen</h2>
-                <p class="text-gray-700">2.134</p>
-            </div>
-            <div class="bg-white rounded-lg shadow p-4">
-                <h2 class="text-xl font-bold mb-2">Profit</h2>
+                <h2 class="text-xl font-bold mb-2">Total transaksi</h2>
                 <p class="text-gray-700">2.134</p>
             </div>
 
         </div>
 
-        <div class="mt-4">
-            <h2 class="text-xl font-bold mb-2">Grafik pendaftaran</h2>
-            <div class="w-full bg-white rounded-lg shadow p-3" style="height: 60vh">
-                <!-- Char Goes Here -->
-                <canvas id="myChart"></canvas>
-            </div>
-        </div>
     </div>
 @endsection
 

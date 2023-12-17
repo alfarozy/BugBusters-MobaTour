@@ -28,8 +28,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="full_name">Nama Lengkap</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input " name="name" id="full_name" type="text" placeholder="Nama Lengkap"
-                            value="{{ old('name') }}">
+                        <input class="uk-input uk-border-rounded " name="name" id="full_name" type="text"
+                            placeholder="Nama Lengkap" value="{{ old('name') }}">
                         @error('name')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -39,8 +39,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="Email">Email</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input " id="Email" name="email" type="email" placeholder="Email"
-                            value="{{ old('email') }}">
+                        <input class="uk-input uk-border-rounded " id="Email" name="email" type="email"
+                            placeholder="Email" value="{{ old('email') }}">
                         @error('email')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -51,7 +51,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="password" name="password" type="password" placeholder="Password">
+                        <input class="uk-input uk-border-rounded" id="password" name="password" type="password"
+                            placeholder="Password">
                         @error('password')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -61,7 +62,8 @@
 
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Register</button>
+                    <button class="uk-button  uk-border-rounded uk-button  uk-button-primary uk-width-1-1"
+                        type="submit">Register</button>
                 </div>
 
                 <hr>

@@ -4,6 +4,6 @@
             Tourney</a>
     </div>
     <nav class="text-white text-base font-semibold pt-3">
-        @include('layouts.dashboard.menu')
+        @include('layouts.member.menu')
     </nav>
 </aside>

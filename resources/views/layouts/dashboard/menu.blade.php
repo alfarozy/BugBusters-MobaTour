@@ -1,16 +1,27 @@
-<ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
-    <li class="uk-active"><a href="#"><span data-uk-icon="icon: home"
-                class="uk-margin-small-right"></span>Dashboard</a>
-    </li>
-    <li><a href="#"><span data-uk-icon="icon: users" class="uk-margin-small-right"></span>Member</a>
-    </li>
-    <li><a href="#"><span data-uk-icon="icon: album" class="uk-margin-small-right"></span>Turnamen</a>
-    </li>
-    <li><a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Registrasi
-            turnamen</a></li>
-    <hr>
-    <li><a href="{{ route('logout') }}"><span data-uk-icon="icon: sign-out"
-                class="uk-margin-small-right"></span>Logout</a>
-    </li>
-
-</ul>
+<a href="{{ route('dashboard.index.admin') }}"
+    class="flex items-center text-white hover:opacity-100 py-4 pl-6 nav-item {{ request()->routeIs('dashboard.index.admin') ? 'active-nav-link' : 'opacity-75' }}">
+    <i class="fas fa-tachometer-alt mr-3"></i>
+    Dashboard
+</a>
+<a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+    <i class="fas fa-calendar-check mr-3"></i>
+    Pendaftaran Turnamen
+</a>
+<a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+    <i class="fas fa-trophy mr-3"></i>
+    Turnamen
+</a>
+<a href="blank.html" class="flex items-center text-white opacity-75 py-4 pl-6 nav-item">
+    <i class="fas fa-users mr-3"></i>
+    Member
+</a>
+<a href="{{ route('admin.index') }}"
+    class="flex items-center text-white py-4 pl-6 nav-item {{ request()->routeIs('admin.*') ? 'active-nav-link' : 'opacity-75' }}">
+    <i class="fas fa-user-shield mr-3"></i>
+    Admin
+</a>
+<hr>
+<a href="{{ route('logout.admin') }}" class="flex items-center opacity-75 text-white py-4 pl-6 nav-item">
+    <i class="fas fa-sign-out-alt mr-3"></i>
+    Logout
+</a>

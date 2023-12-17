@@ -10,4 +10,14 @@ class HomeController extends Controller
     {
         return view('homepage.index');
     }
+
+    public function tournamnet()
+    {
+        return view('homepage.index');
+    }
+
+    public function detailTournament()
+    {
+        return view('homepage.index');
+    }
 }

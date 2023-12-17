@@ -28,7 +28,8 @@
                 <div class="uk-margin">
                     <label class="uk-form-label" for="password">Password</label>
                     <div class="uk-form-controls">
-                        <input class="uk-input" id="password" name="password" type="password" placeholder="Password">
+                        <input class="uk-input uk-border-rounded" id="password" name="password" type="password"
+                            placeholder="Password">
                         @error('password')
                             <small class="uk-text-small uk-text-danger">{{ $message }}</small>
                         @enderror
@@ -37,7 +38,8 @@
 
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary uk-width-1-1" type="submit">Simpan password</button>
+                    <button class="uk-button  uk-border-rounded uk-button  uk-button-primary uk-width-1-1"
+                        type="submit">Simpan password</button>
                 </div>
 
             </form>
