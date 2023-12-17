@@ -22,8 +22,8 @@ return new class extends Migration
             $table->enum('type', ['free', 'premium'])->default('free');
             $table->double('price')->nullable();
             $table->enum('mode', ['single', 'double', 'group'])->default('single');
-            $table->timestamp('schedule_date');
-            $table->timestamp('end_register_date');
+            $table->dateTime('schedule_date');
+            $table->dateTime('end_register_date');
             $table->timestamps();
         });
     }
