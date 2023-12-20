@@ -30,7 +30,7 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
 
 //> dashboard admin
 Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index.admin');
+    Route::get('/', [DashboardController::class, 'indexAdmin'])->name('dashboard.index.admin');
 
     Route::resource('admin', AdminController::class);
     Route::get('admin/setStatus/{id}', [AdminController::class, 'setStatus'])->name('admin.setActive');

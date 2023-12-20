@@ -10,4 +10,8 @@ class DashboardController extends Controller
     {
         return view('member.index');
     }
+    public function indexAdmin()
+    {
+        return view('dashboard.index');
+    }
 }
