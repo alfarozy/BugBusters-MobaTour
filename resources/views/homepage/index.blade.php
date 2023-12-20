@@ -220,9 +220,18 @@
                                     Turnament 1
                                 </a>
                             </h3>
-                            <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                Slot 30/32
-                            </p>
+                            <div class="flex justify-between">
+                                <div class="flex-1">
+                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
+                                        Slot 30/32
+                                    </p>
+                                </div>
+                                <div class="">
+                                    <b class="text-secondary ">
+                                        Pendaftaran Gratis
+                                    </b>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,9 +254,19 @@
                                     Turnament 2
                                 </a>
                             </h3>
-                            <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                Slot 30/32
-                            </p>
+                            <div class="flex justify-between">
+                                <div class="flex-1">
+                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
+                                        Slot 30/32
+                                    </p>
+                                </div>
+                                <div>
+                                    <b class="text-primary text-body-color">
+                                        50k / Team
+                                    </b>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -270,9 +289,18 @@
                                     Turnament 3
                                 </a>
                             </h3>
-                            <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                Slot 30/32
-                            </p>
+                            <div class="flex justify-between">
+                                <div class="flex-1">
+                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
+                                        Slot 49/64
+                                    </p>
+                                </div>
+                                <div class="">
+                                    <b class="text-secondary text-body-color">
+                                        Pendaftaran Gratis
+                                    </b>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
