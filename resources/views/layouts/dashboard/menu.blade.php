@@ -12,7 +12,7 @@
     <i class="fas fa-trophy mr-3"></i>
     Turnamen
 </a>
-<a href="blank.html" class="flex items-center text-white opacity-75 py-4 pl-6 nav-item">
+<a href="{{ route('member.index') }}" class="flex items-center text-white opacity-75 py-4 pl-6 nav-item">
     <i class="fas fa-users mr-3"></i>
     Member
 </a>
