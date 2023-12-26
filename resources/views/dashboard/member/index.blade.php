@@ -50,22 +50,10 @@
                                 <td class="text-center py-3 px-4">
                                     {{-- Tombol Edit --}}
                                     @if (Auth()->guard('admin')->id() != $item->id)
-                                        <a href="{{ route('member.edit', $item->id) }}"
+                                        <a href="{{ route('member.show', $item->id) }}"
                                             class="bg-blue-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
                                             <i class="fas fa-address-card"></i>
                                         </a>
-                                        {{-- Tombol Hapus --}}
-                                        @if ($item->is_active == 1)
-                                            <a href="{{ route('member.setActive', $item->id) }}"
-                                                class="bg-red-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
-                                                <i class="fas fa-trash"></i>
-                                            </a>
-                                        @else
-                                            <a href="{{ route('member.setActive', $item->id) }}"
-                                                class="bg-green-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
-                                                <i class="fas fa-check"></i>
-                                            </a>
-                                        @endif
                                     @endif
                                 </td>
                             </tr>
