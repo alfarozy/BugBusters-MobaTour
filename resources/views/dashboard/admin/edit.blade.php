@@ -7,7 +7,7 @@
             <h1 class="text-3xl text-black">@yield('title')</h1>
 
             <!-- Right side - Tambah Data button -->
-            <a href="{{ route('admin.index') }}" class="bg-green-500 text-white px-4 py-2 rounded-md text-sm">
+            <a href="{{ route('admin.index') }}" class="bg-gray-500 text-white px-4 py-2 rounded-md text-sm">
                 <i class="fas fa-arrow-left mr-2"></i> Kembali
             </a>
         </div>

@@ -63,12 +63,14 @@ class AdminController extends Controller
         $attr = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:admins,email,' . $id,
-            'password' => 'nullable|min:6',
+            'password' => 'sometimes|nullable|min:6',
         ], $customMessages);
 
         //> encrypt password
-        if ($request->password) {
+        if ($request->password != null) {
             $attr['password'] = bcrypt($request->password);
+        } else {
+            unset($attr['password']);
         }
 
         $data->update($attr);

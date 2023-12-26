@@ -7,7 +7,8 @@
     <i class="fas fa-calendar-check mr-3"></i>
     Pendaftaran Turnamen
 </a>
-<a href="forms.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+<a href="{{ route('tournament.index') }}"
+    class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
     <i class="fas fa-trophy mr-3"></i>
     Turnamen
 </a>

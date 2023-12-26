@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
 //> dashboard admin
 Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
     Route::get('/', [DashboardController::class, 'indexAdmin'])->name('dashboard.index.admin');
+
+    Route::resource('tournament', TournamentController::class);
 
     Route::resource('admin', AdminController::class);
     Route::get('admin/setStatus/{id}', [AdminController::class, 'setStatus'])->name('admin.setActive');

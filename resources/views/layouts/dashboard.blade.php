@@ -45,6 +45,7 @@
             background: #2c2d2e;
         }
     </style>
+    @yield('style')
 </head>
 
 <body class="bg-gray-100 font-family-karla flex">
