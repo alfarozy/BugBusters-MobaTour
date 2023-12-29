@@ -44,7 +44,7 @@ uk-text-center">
 
                 <!-- Tombol Login -->
                 <div class="uk-margin">
-                    <button class="uk-button  uk-border-rounded uk-button  uk-border-rounded-secondary uk-width-1-1"
+                    <button class="uk-button uk-border-rounded uk-button-secondary uk-width-1-1"
                         type="submit">Login</button>
                 </div>
             </form>
