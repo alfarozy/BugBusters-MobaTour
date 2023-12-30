@@ -11,13 +11,13 @@ class HomeController extends Controller
         return view('homepage.index');
     }
 
-    public function tournamnet()
+    public function tournament()
     {
-        return view('homepage.index');
+        return view('homepage.tournament.index');
     }
 
     public function detailTournament()
     {
-        return view('homepage.index');
+        return view('homepage.tournament.show');
     }
 }

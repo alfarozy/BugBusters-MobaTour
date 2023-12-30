@@ -49,12 +49,10 @@
                                 </td>
                                 <td class="text-center py-3 px-4">
                                     {{-- Tombol Edit --}}
-                                    @if (Auth()->guard('admin')->id() != $item->id)
-                                        <a href="{{ route('member.show', $item->id) }}"
-                                            class="bg-blue-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
-                                            <i class="fas fa-address-card"></i>
-                                        </a>
-                                    @endif
+                                    <a href="{{ route('member.show', $item->id) }}"
+                                        class="bg-blue-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
+                                        <i class="fas fa-address-card"></i>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

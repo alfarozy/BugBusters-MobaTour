@@ -11,7 +11,7 @@
     <i class="fas fa-table mr-3"></i>
     History transaksi
 </a>
-<a href="{{ route('logout.admin') }}" class="flex items-center opacity-75 text-white py-4 pl-6 nav-item">
+<a href="{{ route('logout') }}" class="flex items-center opacity-75 text-white py-4 pl-6 nav-item">
     <i class="fas fa-sign-out-alt mr-3"></i>
     Logout
 </a>

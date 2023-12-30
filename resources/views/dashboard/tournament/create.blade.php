@@ -6,6 +6,8 @@
             height: 530px
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.css">
+
 @endsection
 @section('content')
     <main class="w-full flex-grow p-6">
@@ -22,7 +24,20 @@
 
         <div class="w-full mt-6">
             <div class="bg-white overflow-auto">
-                <form class="p-10 bg-white rounded shadow-xl" method="POST" action="{{ route('tournament.store') }}">
+                @if ($errors->any())
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <strong class="font-bold">Oops!</strong>
+                        <span class="block sm:inline">Ada beberapa masalah dengan inputan Anda.</span>
+                        <ul class="mt-3 list-disc list-inside text-sm">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form class="p-10 bg-white rounded shadow-xl" method="POST" action="{{ route('tournament.store') }}"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="flex">
 
@@ -41,20 +56,8 @@
 
                             <!-- Schedule Date and End Register Date (in Two Columns) -->
                             <div class="mt-2 flex">
-                                <!-- Schedule Date -->
-                                <div class="w-1/2 pr-2">
-                                    <label for="schedule_date" class="block text-sm text-gray-600">Tanggal Turnamen</label>
-                                    <input type="date" id="schedule_date" name="schedule_date"
-                                        class="w-full px-5 py-2 text-gray-700 border border-gray-200 rounded datepicker @error('schedule_date') border border-red-500 @enderror"
-                                        value="{{ old('schedule_date') }}" placeholder="Schedule Date"
-                                        aria-label="Schedule Date">
-                                    @error('schedule_date')
-                                        <small class="text-red-500">{{ $message }}</small>
-                                    @enderror
-                                </div>
-
                                 <!-- End Register Date -->
-                                <div class="w-1/2 pl-2">
+                                <div class="w-1/2 pr-2">
                                     <label for="end_register_date" class="block text-sm text-gray-600">Tanggal Tutup
                                         Pendaftaran</label>
                                     <input type="date" id="end_register_date" name="end_register_date"
@@ -62,6 +65,17 @@
                                         value="{{ old('end_register_date') }}" placeholder="End Register Date"
                                         aria-label="End Register Date">
                                     @error('end_register_date')
+                                        <small class="text-red-500">{{ $message }}</small>
+                                    @enderror
+                                </div>
+                                <!-- Schedule Date -->
+                                <div class="w-1/2 pl-2">
+                                    <label for="schedule_date" class="block text-sm text-gray-600">Tanggal Turnamen</label>
+                                    <input type="date" id="schedule_date" name="schedule_date"
+                                        class="w-full px-5 py-2 text-gray-700 border border-gray-200 rounded datepicker @error('schedule_date') border border-red-500 @enderror"
+                                        value="{{ old('schedule_date') }}" placeholder="Schedule Date"
+                                        aria-label="Schedule Date">
+                                    @error('schedule_date')
                                         <small class="text-red-500">{{ $message }}</small>
                                     @enderror
                                 </div>
@@ -106,20 +120,20 @@
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
                             </div>
-                            <div class="mt-2">
+                            <div class="mt-2 mb-2">
 
-                                <label for="type" class="block text-sm text-gray-600">Mode</label>
-                                <select id="type" name="type" required
-                                    class="w-full px-3 py-2.5 text-gray-700 border border-gray-200 rounded @error('type') border border-red-500 @enderror">
+                                <label for="mode" class="block text-sm text-gray-600">Mode</label>
+                                <select id="mode" name="mode" required
+                                    class="w-full px-3 py-2.5 text-gray-700 border border-gray-200 rounded @error('mode') border border-red-500 @enderror">
                                     <option value="{{ \App\Models\Tournament::MODE_SINGLE }}">Single</option>
                                     <option value="{{ \App\Models\Tournament::MODE_DOUBLE }}">Double</option>
                                     <option value="{{ \App\Models\Tournament::MODE_GROUP }}">Goup</option>
                                 </select>
-                                @error('type')
+                                @error('mode')
                                     <small class="text-red-500">{{ $message }}</small>
                                 @enderror
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-4">
                                 <span>Thumbnails</span>
                                 <div
                                     class="relative h-40 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer">
@@ -170,6 +184,23 @@
 
     <script src="/backoffice/js/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.9/dist/flatpickr.min.js"></script>
+
+    <script>
+        // Initialize flatpickr
+        flatpickr("#end_register_date", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            time_24hr: true,
+            // Add more options as needed
+        });
+        flatpickr("#schedule_date", {
+            enableTime: true,
+            dateFormat: "Y-m-d H:i",
+            time_24hr: true,
+            // Add more options as needed
+        });
+    </script>
     <script>
         $(document).ready(function() {
             // Fungsi yang dipanggil ketika nilai tipe berubah
