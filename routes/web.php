@@ -37,6 +37,7 @@ Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
     Route::get('/members/{id}', [MemberController::class, 'show'])->name('member.show');
 
     Route::resource('tournament', TournamentController::class);
+    Route::get('tournament/setStatus/{id}', [TournamentController::class, 'setStatus'])->name('tournament.setActive');
 
     Route::resource('admin', AdminController::class);
     Route::get('admin/setStatus/{id}', [AdminController::class, 'setStatus'])->name('admin.setActive');

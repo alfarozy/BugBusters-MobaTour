@@ -75,7 +75,7 @@ class AdminController extends Controller
 
         $data->update($attr);
 
-        return redirect()->route('admin.index')->with('success', 'Data admin berhasil ditambahkan.');
+        return redirect()->route('admin.index')->with('success', 'Data admin berhasil perbarui.');
     }
 
 

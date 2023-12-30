@@ -35,9 +35,11 @@
                     <thead class="bg-gray-800 text-white">
                         <tr>
                             <th width="5%" class="text-left py-3 px-4 uppercase font-semibold text-sm">No.</th>
-                            <th width="30%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Turnamen</th>
-                            <th width="30%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
-                            <th width="15%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Tipe</th>
+                            <th width="25%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Turnamen</th>
+                            <th width="20%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
+                            <th width="15%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tipe
+                                pendaftaran</th>
+                            <th width="15%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
                             <th width="20%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
@@ -47,15 +49,23 @@
                                 <td class="text-left py-3 px-4">{{ $loop->iteration }}</td>
                                 <td class="text-left py-3 px-4">{{ $item->title }}</td>
                                 <td class="text-left py-3 px-4">{{ $item->schedule_date }}</td>
-                                <td class="text-center py-3 px-4">
+                                <td class="text-left py-3 px-4">
                                     @if ($item->type == 'free')
-                                        <span
-                                            class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full ml-2">Pendaftaran
-                                            Gratis</span>
+                                        <span class="w-100 text-green-500 text-xs "><b>Pendaftaran
+                                                Gratis</b></span>
                                     @else
+                                        <span class="w-100 text-blue-500 text-xs "><b>Premium
+                                                <br> {{ currencyIDR($item->price) }} / Team</b>
+                                        </span>
+                                    @endif
+                                </td>
+                                <td class="text-center py-3 px-4">
+                                    @if ($item->is_active)
                                         <span
-                                            class="w-100 bg-red-500 text-white px-3 py-1 text-xs rounded-full ml-2">Premium
-                                            ({{ currencyIDR($item->price) }})
+                                            class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full">Aktif</span>
+                                    @else
+                                        <span class="w-100 bg-red-500 text-white px-3 py-1 text-xs rounded-full">Tidak
+                                            aktif
                                         </span>
                                     @endif
                                 </td>
@@ -67,12 +77,12 @@
                                     </a>
                                     {{-- Tombol Hapus --}}
                                     @if ($item->is_active == 1)
-                                        <a href="{{ route('admin.setActive', $item->id) }}"
+                                        <a href="{{ route('tournament.setActive', $item->id) }}"
                                             class="bg-red-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
                                             <i class="fas fa-trash"></i>
                                         </a>
                                     @else
-                                        <a href="{{ route('admin.setActive', $item->id) }}"
+                                        <a href="{{ route('tournament.setActive', $item->id) }}"
                                             class="bg-green-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
                                             <i class="fas fa-check"></i>
                                         </a>

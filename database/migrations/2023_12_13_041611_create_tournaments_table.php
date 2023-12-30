@@ -24,6 +24,7 @@ return new class extends Migration
             $table->enum('mode', ['single', 'double', 'group'])->default('single');
             $table->dateTime('schedule_date');
             $table->dateTime('end_register_date');
+            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
         });
     }
