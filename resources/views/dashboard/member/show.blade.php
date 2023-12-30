@@ -8,25 +8,25 @@
     </div>
 
 
-    <div class="w-full mt-6">
+    <div class="bg-white p-6 rounded-lg shadow-md">
 
-        <div class="bg-white overflow-auto p-4">
-            <div id="user-details" class="grid grid-cols-2 gap-4">
-                <!-- User Name -->
-                <div class="mb-4">
-                    <div class="text-lg font-semibold mb-2">Name:</div>
-                    <div id="user-name" class="text-gray-800">{{ $data->name }} </div>
-                </div>
-
-                <!-- User Email -->
-                <div class="mb-4">
-                    <div class="text-lg font-semibold mb-2">Email:</div>
-                    <div id="user-email" class="text-gray-800">{{ $data->email }} </div>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- User Name -->
+            <div>
+                <label for="user-name" class="block text-sm font-semibold text-gray-600 mb-1">Name:</label>
+                <div id="user-name" class="text-lg ">{{ $data->name }}</div>
             </div>
 
+            <!-- User Email -->
+            <div>
+                <label for="user-email" class="block text-sm font-semibold text-gray-600 mb-1">Email:</label>
+                <div id="user-email" class="text-gray-800">{{ $data->email }}</div>
+            </div>
         </div>
+
+
     </div>
+
 
 </main>
 
