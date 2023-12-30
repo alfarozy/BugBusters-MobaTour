@@ -36,6 +36,7 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
 //> dashboard admin
 Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
     Route::get('/', [DashboardController::class, 'indexAdmin'])->name('dashboard.index.admin');
+    Route::get('/register-tournament', [DashboardController::class, 'registerTournament'])->name('dashboard.register-tournament.admin');
     Route::get('/members', [MemberController::class, 'index'])->name('member.index');
     Route::get('/members/{id}', [MemberController::class, 'show'])->name('member.show');
 
