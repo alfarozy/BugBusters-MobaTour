@@ -13,8 +13,14 @@ class TournamentRegistrationController extends Controller
         $data = UserTournament::where('user_id', auth()->id())->latest()->get();
         return view('member.tournament.index', compact('data'));
     }
+    public function show($code)
+    {
+        $data = UserTournament::where('user_id', auth()->id())->whereCode($code)->firstOrFail();
+        return view('member.tournament.show', compact('data'));
+    }
     public function registration($slug)
     {
+
         $data = Tournament::whereSlug($slug)->firstOrFail();
         return view('member.tournament.registration', compact('data'));
     }
