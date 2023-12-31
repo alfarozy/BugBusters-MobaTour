@@ -100,7 +100,7 @@
 
                         <label for="user-name" class="block font-semibold mb-4">Status</label>
                         @if ($data->status == 'active')
-                            <span class="w-100 bg-green-500 text-white px-4 py-3 text-xs rounded">BERHASIL</span>
+                            <span class="w-100 bg-green-500 text-white px-4 py-3 text-xs rounded">SUCCESS</span>
                         @else
                             <span class="w-100 bg-yellow-500 text-white px-4 py-3 text-xs rounded">PENDING
                                 <span class="text-grey-600">(Menunggu pembayaran)</span>

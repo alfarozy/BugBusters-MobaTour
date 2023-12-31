@@ -48,7 +48,7 @@
                                     <small>{{ $item->created_at->translatedFormat('d-F-Y') }}</small>
                                 </td>
                                 <td class="text-center py-3 px-4">
-                                    @if ($item->is_active == 1)
+                                    @if ($item->status == "active")
                                         <span
                                             class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full ml-2">Success</span>
                                     @else
