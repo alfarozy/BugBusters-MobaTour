@@ -1,7 +1,6 @@
 
 <?php
 
-use App\Models\Product;
 use Carbon\Carbon;
 
 function currencyIDR($value)
@@ -24,33 +23,6 @@ function random_code()
 {
 
     return rand(1111, 9999);
-}
-function generateProductCode($name)
-{
-    // Mendapatkan array kata-kata dari nama produk
-    $words = explode(' ', $name);
-
-    // Mengambil huruf pertama dari setiap kata
-    $prefix = '';
-    foreach ($words as $word) {
-        $prefix .= strtoupper(substr($word, 0, 1));
-    }
-    $lastProduct = Product::where(['user_id' => auth()->id(), 'is_active' => 1])->latest()->first(); // Sesuaikan dengan model produk Anda
-
-    // Menentukan inkrement berdasarkan kode terakhir
-    $increment = 1;
-    if ($lastProduct) {
-        $lastCode = $lastProduct->code;
-        // Mendapatkan bagian angka dari kode terakhir
-        $lastNumber = (int)substr($lastCode, strlen($prefix));
-        $increment = $lastNumber + 1;
-    }
-
-    // Menggabungkan dengan angka inkrement
-    $code = $prefix . str_pad($increment, 3, '0', STR_PAD_LEFT);
-
-
-    return $code;
 }
 
 function age($tanggalLahir)
@@ -103,6 +75,17 @@ function isExpired($expire_date)
 function cdaFormatTime($datetime, $format = 'm/d/Y h:i A')
 {
     return Carbon::createFromFormat('Y-m-d H:i:s', $datetime)->format($format);
+}
+function generateRregistrationCode($length = 8)
+{
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    $randomString = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    return $randomString;
 }
 
 function arrayToString($array)

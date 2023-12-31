@@ -1,4 +1,4 @@
-<div class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-white">
+<div class="ud-header absolute left-0 top-0 z-40 flex w-full items-center bg-white shadow">
     <div class="container">
         <div class="relative flex items-center justify-between">
             <div class="w-60 max-w-full px-4">
@@ -18,19 +18,19 @@
                         class="absolute right-4 top-full hidden w-full max-w-full rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:w-full lg:max-w-full lg:bg-transparent lg:px-4 lg:py-0 lg:shadow-none xl:px-6 flex justify-center items-center">
                         <ul class="relative lg:flex">
                             <li class="group relative">
-                                <a href="#home"
+                                <a href="/"
                                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-95">
                                     Beranda
                                 </a>
                             </li>
                             <li class="group relative">
-                                <a href="#about"
+                                <a href="/#about"
                                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-95 xl:ml-10">
                                     Tentang
                                 </a>
                             </li>
                             <li class="group relative">
-                                <a href="#pricing"
+                                <a href="{{ route('home.tournaments.index') }}"
                                     class="ud-menu-scroll mx-8 flex py-2 text-base font-medium text-dark group-hover:text-primary lg:ml-7 lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 lg:group-hover:opacity-95 xl:ml-10">
                                     Turnamen
                                 </a>

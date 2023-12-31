@@ -35,6 +35,152 @@
         </div>
     </div>
 
+    <section id="about" class="bg-gray-1 pb-8 pt-20 lg:pb-[70px] lg:pt-[120px] p-5">
+        <div class="container">
+            <div class="wow fadeInUp" data-wow-delay=".2s">
+                <div class="-mx-4 flex flex-wrap items-center">
+                    <div class="w-full px-4 lg:w-1/2">
+                        <div class="mb-12 max-w-[540px] lg:mb-0">
+                            <h2 class="mb-5 text-3xl font-bold leading-tight text-dark sm:text-[40px] sm:leading-[1.2]">
+                                Tentang kami
+                            </h2>
+                            <p class="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
+                                Moba Tourney merupakan platform pendaftaran turnamen online terpercaya pertama di
+                                indonesia,
+                                kami menyediakan informasi lengkap mengenai jadwal turnamen Mobile Legends.
+                                <br>
+                                <br>
+                                Kami berkomitmen untuk menjadi pelopor dalam memberikan pengalaman turnamen yang
+                                menyenangkan
+                                dan menciptakan panggung tempat setiap pemain dapat membuktikan kemampuannya.
+                            </p>
+                            <div class="flex space-x-4">
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    <i class="fab fa-facebook"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
+                                </button>
+
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    <i class="fab fa-instagram"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
+                                </button>
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    <i class="fab fa-whatsapp"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
+                                </button>
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    <i class="fab fa-youtube"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
+                                </button>
+                                <button
+                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3.5 rounded-full focus:outline-none focus:shadow-outline">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14"
+                                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                                        <path fill="#ffffff"
+                                            d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
+                                    </svg>
+                                </button>
+
+                                <!-- Tambahkan ikon sosial media lainnya sesuai kebutuhan -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w-full px-4 lg:w-1/2">
+                        <img src="/image/about.svg" style="width: 100%" alt="about image"
+                            class="h-full w-full object-cover object-center" />
+                        {{-- <div class="w-full px-2 sm:w-1 sm:px-4 lg:px-2 xl:px-4">
+                        </div> --}}
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white pb-10 pt-20 lg:pb-20 lg:pt-[120px] p-5">
+        <div class="container mx-auto">
+            <div class="-mx-4 flex flex-wrap justify-center">
+                <div class="w-full px-4">
+                    <div class="mx-auto mb-[60px] max-w-[485px] text-center">
+                        <span class="mb-2 block text-lg font-semibold text-primary">
+                            Rekomendasi
+                        </span>
+                        <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px] md:leading-[1.2]">
+                            Turnamen terbaru
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="-mx-4 flex flex-wrap">
+                @foreach ($tournaments as $item)
+                    <div class="w-full px-4 md:w-1/2 lg:w-1/3 ">
+                        <div class="wow fadeInUp group mb-10 shadow rounded" data-wow-delay=".1s">
+                            <div class="overflow-hidden rounded-[5px]">
+                                <a href="{{ route('home.tournaments.show', $item->slug) }}" class="block">
+                                    <img src="{{ $item->getThumbnails() }}" alt="image"
+                                        class="w-full transition group-hover:scale-125" />
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex justify-between mb-2">
+                                    <div class="flex-1">
+                                        <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
+                                            Slot {{ $item->userTournaments->count() }}/{{ $item->slot }}
+                                        </p>
+                                    </div>
+                                    <div class="">
+                                        @if ($item->type == 'free')
+                                            <b class="text-secondary ">
+                                                Pendaftaran Gratis
+                                            </b>
+                                        @else
+                                            <b class="text-primary ">
+                                                {{ currencyIDR($item->price) }} / Team
+                                            </b>
+                                        @endif
+                                    </div>
+                                </div>
+                                <h3>
+                                    <a href="{{ route('home.tournaments.show', $item->slug) }}"
+                                        class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
+                                        {{ $item->title }}
+                                    </a>
+                                </h3>
+
+                                <div class="mt-3 flex justify-between">
+
+                                    <div>
+                                        <small style="display: block">Pendaftaran Dibuka</small>
+                                        @php
+                                            $end_register_date = Carbon\Carbon::parse($item->end_register_date);
+                                        @endphp
+                                        <small
+                                            class="text-body-color mb-3">{{ $end_register_date->translatedFormat('D') }},{{ $end_register_date->translatedFormat('d M Y H:i') }}
+                                            WIB</small>
+
+                                    </div>
+                                    <div style="text-align: end">
+                                        <small style="display: block">Turnamen Dimulai</small>
+                                        @php
+                                            $schedule_date = Carbon\Carbon::parse($item->schedule_date);
+                                        @endphp
+                                        <small
+                                            class="text-body-color mb-3">{{ $schedule_date->translatedFormat('D') }},{{ $schedule_date->translatedFormat('d M Y H:i') }}
+                                            WIB</small>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
+
     <section class="pb-8 pt-20 lg:pb-[70px] lg:pt-[120px] p-5">
         <div class="container">
             <div class="-mx-4 flex flex-wrap">
@@ -140,170 +286,6 @@
                             luang Anda.
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="bg-gray-1 pb-8 pt-20 lg:pb-[70px] lg:pt-[120px] p-5">
-        <div class="container">
-            <div class="wow fadeInUp" data-wow-delay=".2s">
-                <div class="-mx-4 flex flex-wrap items-center">
-                    <div class="w-full px-4 lg:w-1/2">
-                        <div class="mb-12 max-w-[540px] lg:mb-0">
-                            <h2 class="mb-5 text-3xl font-bold leading-tight text-dark sm:text-[40px] sm:leading-[1.2]">
-                                Tentang kami
-                            </h2>
-                            <p class="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6">
-                                Moba Tourney merupakan platform pendaftaran turnamen online terpercaya pertama di
-                                indonesia,
-                                kami menyediakan informasi lengkap mengenai jadwal turnamen Mobile Legends.
-                                <br>
-                                <br>
-                                Kami berkomitmen untuk menjadi pelopor dalam memberikan pengalaman turnamen yang
-                                menyenangkan
-                                dan menciptakan panggung tempat setiap pemain dapat membuktikan kemampuannya.
-                            </p>
-
-                            <a href="{{ route('register') }}"
-                                class="inline-flex items-center justify-center rounded-md border border-primary bg-primary px-7 py-3 text-center text-base font-medium text-white hover:border-blue-dark hover:bg-blue-dark">
-                                Daftar Sekarang
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="w-full px-4 lg:w-1/2">
-                        <div class="w-full px-2 sm:w-1 sm:px-4 lg:px-2 xl:px-4">
-                            <img src="/image/about.svg" style="width: 100%" alt="about image"
-                                class="h-full w-full object-cover object-center" />
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="bg-white pb-10 pt-20 lg:pb-20 lg:pt-[120px] p-5">
-        <div class="container mx-auto">
-            <div class="-mx-4 flex flex-wrap justify-center">
-                <div class="w-full px-4">
-                    <div class="mx-auto mb-[60px] max-w-[485px] text-center">
-                        <span class="mb-2 block text-lg font-semibold text-primary">
-                            Rekomendasi
-                        </span>
-                        <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl md:text-[40px] md:leading-[1.2]">
-                            Turnamen terbaru
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            <div class="-mx-4 flex flex-wrap">
-                <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="wow fadeInUp group mb-10" data-wow-delay=".1s">
-                        <div class="mb-8 overflow-hidden rounded-[5px]">
-                            <a href="blog-details.html" class="block">
-                                <img src="https://source.unsplash.com/random" alt="image"
-                                    class="w-full transition group-hover:scale-125" />
-                            </a>
-                        </div>
-                        <div>
-                            <span
-                                class="mb-6 inline-block rounded-[5px] bg-primary px-4 py-0.5 text-center text-xs font-medium leading-loose text-white">
-                                Des 22, 2023 Jam 20:00 WIB
-                            </span>
-                            <h3>
-                                <a href="javascript:void(0)"
-                                    class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                    Turnament 1
-                                </a>
-                            </h3>
-                            <div class="flex justify-between">
-                                <div class="flex-1">
-                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                        Slot 30/32
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <b class="text-secondary ">
-                                        Pendaftaran Gratis
-                                    </b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="wow fadeInUp group mb-10" data-wow-delay=".1s">
-                        <div class="mb-8 overflow-hidden rounded-[5px]">
-                            <a href="blog-details.html" class="block">
-                                <img src="https://source.unsplash.com/random" alt="image"
-                                    class="w-full transition group-hover:scale-125" />
-                            </a>
-                        </div>
-                        <div>
-                            <span
-                                class="mb-6 inline-block rounded-[5px] bg-primary px-4 py-0.5 text-center text-xs font-medium leading-loose text-white">
-                                Des 22, 2023 Jam 20:00 WIB
-                            </span>
-                            <h3>
-                                <a href="javascript:void(0)"
-                                    class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                    Turnament 2
-                                </a>
-                            </h3>
-                            <div class="flex justify-between">
-                                <div class="flex-1">
-                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                        Slot 30/32
-                                    </p>
-                                </div>
-                                <div>
-                                    <b class="text-primary text-body-color">
-                                        50k / Team
-                                    </b>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full px-4 md:w-1/2 lg:w-1/3">
-                    <div class="wow fadeInUp group mb-10" data-wow-delay=".1s">
-                        <div class="mb-8 overflow-hidden rounded-[5px]">
-                            <a href="blog-details.html" class="block">
-                                <img src="https://source.unsplash.com/random" alt="image"
-                                    class="w-full transition group-hover:scale-125" />
-                            </a>
-                        </div>
-                        <div>
-                            <span
-                                class="mb-6 inline-block rounded-[5px] bg-primary px-4 py-0.5 text-center text-xs font-medium leading-loose text-white">
-                                Des 22, 2023 Jam 20:00 WIB
-                            </span>
-                            <h3>
-                                <a href="javascript:void(0)"
-                                    class="mb-4 inline-block text-xl font-semibold text-dark hover:text-primary dark:hover:text-primary sm:text-2xl lg:text-xl xl:text-2xl">
-                                    Turnament 3
-                                </a>
-                            </h3>
-                            <div class="flex justify-between">
-                                <div class="flex-1">
-                                    <p class="max-w-[370px] text-base text-body-color dark:text-dark-6">
-                                        Slot 49/64
-                                    </p>
-                                </div>
-                                <div class="">
-                                    <b class="text-secondary text-body-color">
-                                        Pendaftaran Gratis
-                                    </b>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
                 </div>
             </div>
         </div>
