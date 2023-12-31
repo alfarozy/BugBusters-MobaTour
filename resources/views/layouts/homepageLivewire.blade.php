@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/image/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="/homepage/assets/css/animate.css" />
     <link rel="stylesheet" href="/homepage/assets/css/tailwind.css" />
+
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 
     <!-- ==== WOW JS ==== -->
@@ -18,12 +19,14 @@
     <script>
         new WOW().init();
     </script>
+    @livewireStyles
 </head>
 
 <body>
     @include('layouts.homepage.nav')
 
-    @yield('content')
+    {{ $slot }}
+
 
     <footer class="wow fadeInUp relative z-10 bg-[#090E34]" data-wow-delay=".15s">
 
@@ -45,8 +48,10 @@
             </div>
         </div>
     </footer>
+    @livewireScripts
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
     <script>
         //  responsive navbar
         let navbarToggler = document.querySelector("#navbarToggler");
@@ -71,8 +76,6 @@
         //  wow js
         new WOW().init();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
-        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
 
 </html>

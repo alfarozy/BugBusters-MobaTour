@@ -9,6 +9,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Homepage\ListTournaments;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/tournament', [HomeController::class, 'tournament'])->name('home.tournament');
-Route::get('/tournament/{slug}', [HomeController::class, 'detailTournament'])->name('home.tournament');
+Route::get('/tournament', ListTournaments::class)->name('home.tournaments.index');
+Route::get('/tournament/{slug}', [HomeController::class, 'detailTournament'])->name('home.tournaments.show');
 
 
 //> dashboard member
@@ -31,6 +32,9 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+     //> registrasi turnamen
+     Route::get('/registrasi-tournamen/{slug}', [DashboardController::class, 'registration'])->name('tournament.registration');
+     Route::post('/registrasi-tournamen/{slug}', [DashboardController::class, 'registrationAct '])->name('tournament.registration');
 });
 
 //> dashboard admin
