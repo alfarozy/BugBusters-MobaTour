@@ -15,14 +15,14 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('tournament_id');
-            $table->foreignId('member_tournament_id');
+            $table->foreignId('user_tournament_id');
             $table->string('invoice');
             $table->double('price');
             $table->dateTime('order_date');
             $table->dateTime('expired_date');
             $table->dateTime('payment_date');
-            $table->dateTime('invoice_url');
-            $table->enum('status', ['UNCONFIRMED', 'IN_CONFIRMATION', 'PAYMENT_ACCEPTED', 'PAYMENT_REJECTED', 'EXPIRED', 'CANCELLED'])->default("UNCONFIRMED");
+            $table->string('invoice_url')->nullable();
+            $table->enum('status', ['UNPAID', 'PAYMENT_ACCEPTED', 'EXPIRED', 'CANCELLED'])->default("UNPAID");
             $table->timestamps();
         });
     }

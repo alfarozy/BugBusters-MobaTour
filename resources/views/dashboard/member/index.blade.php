@@ -26,9 +26,8 @@
                     <thead class="bg-gray-800 text-white">
                         <tr>
                             <th width="5%" class="text-left py-3 px-4 uppercase font-semibold text-sm">No.</th>
-                            <th width="30%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
-                            <th width="30%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
-                            <th width="15%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                            <th width="40%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Nama</th>
+                            <th width="35%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
                             <th width="20%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
@@ -38,15 +37,6 @@
                                 <td class="text-left py-3 px-4">{{ $loop->iteration }}</td>
                                 <td class="text-left py-3 px-4">{{ $item->name }}</td>
                                 <td class="text-left py-3 px-4">{{ $item->email }}</td>
-                                <td class="text-center py-3 px-4">
-                                    @if ($item->is_active == 1)
-                                        <span
-                                            class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full ml-2">Aktif</span>
-                                    @else
-                                        <span class="w-100 bg-red-500 text-white px-3 py-1 text-xs rounded-full ml-2">Tidak
-                                            Aktif</span>
-                                    @endif
-                                </td>
                                 <td class="text-center py-3 px-4">
                                     {{-- Tombol Edit --}}
                                     <a href="{{ route('member.show', $item->id) }}"

@@ -7,7 +7,12 @@ function currencyIDR($value)
 {
     return 'Rp ' . number_format($value, 0, ',', '.');
 }
-
+function randomIdTransaction()
+{
+    $randomInt = mt_rand(0, 9999);
+    $result = time() . $randomInt;
+    return $result;
+}
 function IDRToNum($value)
 {
     return preg_replace('/\D/', '', $value);

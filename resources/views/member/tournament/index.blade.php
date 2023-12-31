@@ -9,6 +9,11 @@
         <div class="flex items-center justify-between mb-6">
             <!-- Left side - Title -->
             <h1 class="text-3xl text-black">@yield('title')</h1>
+
+            <!-- Right side - Tambah Data button -->
+            <a href="{{ route('home.tournaments.index') }}" class="bg-green-500 text-white px-4 py-2 rounded-md text-sm">
+                Registrasi turnamen baru <i class="fas fa-arrow-right mr-2"></i>
+            </a>
         </div>
 
 
@@ -48,7 +53,7 @@
                                     <small>{{ $item->created_at->translatedFormat('d-F-Y') }}</small>
                                 </td>
                                 <td class="text-center py-3 px-4">
-                                    @if ($item->status == "active")
+                                    @if ($item->status == 'active')
                                         <span
                                             class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full ml-2">Success</span>
                                     @else
