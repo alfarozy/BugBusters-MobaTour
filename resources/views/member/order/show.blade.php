@@ -14,7 +14,15 @@
                     {{ session('success') }}
                 </div>
             @endif
-            
+
+            <div class="flex justify-end mt-4">
+                <a href="{{ route('orders.download.invoice', $data->invoice) }}"
+                    class="flex items-center bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    <i class="fa fa-file-pdf mr-2"></i>
+                    Download Invoice
+                </a>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <div>

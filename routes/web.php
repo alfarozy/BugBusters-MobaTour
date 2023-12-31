@@ -37,6 +37,8 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
     Route::resource('member-tournaments', TournamentRegistrationController::class)->only('index', 'show');
 
     Route::resource('orders', OrderController::class)->only('index', 'show');
+    Route::get('/orders/{invoice}/download', [OrderController::class, 'downloadInvoice'])->name('orders.download.invoice');
+
     //> registrasi turnamen
     Route::get('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registration'])->name('tournament.registration');
     Route::post('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registrationAct'])->name('tournament.registration');
