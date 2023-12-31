@@ -51,7 +51,6 @@
                 </li>
             </ul>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <span class="block text-sm text-white text-center dark:text-white">© 2023 <a href="" class="hover:underline">MobaTourney™</a>. All Rights Reserved.</span>
     </div>
 </footer>

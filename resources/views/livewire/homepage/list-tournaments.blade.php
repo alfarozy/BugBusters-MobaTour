@@ -65,7 +65,7 @@
                                     <div class="mt-3 flex justify-between">
 
                                         <div>
-                                            <small style="display: block">Pendaftaran Dibuka</small>
+                                            <small style="display: block">Pendaftaran Ditutup</small>
                                             @php
                                                 $end_register_date = Carbon\Carbon::parse($item->end_register_date);
                                             @endphp

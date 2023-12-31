@@ -54,31 +54,23 @@
                                 menyenangkan
                                 dan menciptakan panggung tempat setiap pemain dapat membuktikan kemampuannya.
                             </p>
-                            <div class="flex space-x-4">
+                            <div class="flex flex-wrap items-center mb-6 text-md font-medium text-white sm:mb-0 text-white gap-5">
                                 <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
                                     <i class="fab fa-facebook"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
                                 </button>
 
                                 <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
                                     <i class="fab fa-instagram"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
                                 </button>
                                 <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
                                     <i class="fab fa-whatsapp"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
                                 </button>
                                 <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
+                                    class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-3 rounded-full focus:outline-none focus:shadow-outline">
                                     <i class="fab fa-youtube"></i> <!-- Ganti dengan ikon Font Awesome yang sesuai -->
-                                </button>
-                                <button
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3.5 rounded-full focus:outline-none focus:shadow-outline">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14"
-                                        viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
-                                        <path fill="#ffffff"
-                                            d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z" />
-                                    </svg>
                                 </button>
 
                                 <!-- Tambahkan ikon sosial media lainnya sesuai kebutuhan -->
@@ -152,7 +144,7 @@
                                 <div class="mt-3 flex justify-between">
 
                                     <div>
-                                        <small style="display: block">Pendaftaran Dibuka</small>
+                                        <small style="display: block">Pendaftaran Ditutup</small>
                                         @php
                                             $end_register_date = Carbon\Carbon::parse($item->end_register_date);
                                         @endphp

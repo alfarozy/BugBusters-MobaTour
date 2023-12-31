@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/image/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="/homepage/assets/css/animate.css" />
     <link rel="stylesheet" href="/homepage/assets/css/tailwind.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 
@@ -50,7 +51,7 @@
                 </li>
             </ul>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+
         <span class="block text-sm text-white text-center dark:text-white">© 2023 <a href="" class="hover:underline">MobaTourney™</a>. All Rights Reserved.</span>
     </div>
 </footer>

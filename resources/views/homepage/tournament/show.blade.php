@@ -49,7 +49,7 @@
                                         <div class="mt-3 flex justify-between">
 
                                             <div>
-                                                <b style="display: block">Pendaftaran Dibuka</b>
+                                                <b style="display: block">Pendaftaran Ditutup</b>
                                                 @php
                                                     $end_register_date = Carbon\Carbon::parse($data->end_register_date);
                                                 @endphp
@@ -110,9 +110,11 @@
 
                                     <br>
                                     <br>
-                                    <a href="{{ route('tournament.registration', $data->slug) }}"
-                                        class="p-4  h-[50px] w-full cursor-pointer rounded-md bg-primary text-center text-sm font-medium text-white transition duration-300 ease-in-out ">Registrasi
-                                        sekarang </a>
+                                    @if (isExpired($data->end_register_date) == false)
+                                        <a href="{{ route('tournament.registration', $data->slug) }}"
+                                            class="p-4  h-[50px] w-full cursor-pointer rounded-md bg-primary text-center text-sm font-medium text-white transition duration-300 ease-in-out ">Registrasi
+                                            sekarang </a>
+                                    @endif
 
                                 </div>
 
