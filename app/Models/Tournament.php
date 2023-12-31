@@ -21,8 +21,9 @@ class Tournament extends Model
     {
         return "/storage/" . $this->thumbnails;
     }
+
     public function userTournaments()
     {
-        return $this->hasMany(UserTournament::class, 'id', 'tournament_id');
+        return $this->hasMany(UserTournament::class, 'tournament_id', 'id')->where('status', 'active');
     }
 }
