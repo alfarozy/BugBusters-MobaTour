@@ -32,13 +32,13 @@
     <footer class="wow fadeInUp relative z-10 bg-[#090E34]" data-wow-delay=".15s">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center justify-between">
-            <a href="https://flowbite.com/" class="gap-4 flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <a href="/" class="gap-4 flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
                 <img src="/image/logo.svg" alt="logo" width="50px" class="header-logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Mobatourney</span>
             </a>
             <ul bg- class="flex flex-wrap items-center mb-6 text-md font-medium text-white sm:mb-0 text-white gap-4">
                 <li >
-                    <a href="#" class="hover:underline mx-4">About</a>
+                    <a href="/" class="hover:underline mx-4">About</a>
                 </li>
                 <li>
                     <a href="#" class="hover:underline mx-4">Privacy Policy</a>
@@ -52,7 +52,7 @@
             </ul>
         </div>
 
-        <span class="block text-sm text-white text-center dark:text-white">© 2023 <a href="" class="hover:underline">MobaTourney™</a>. All Rights Reserved.</span>
+        <span class="block text-sm text-white text-center dark:text-white">© 2023 <a href="/" class="hover:underline">MobaTourney™</a>. All Rights Reserved.</span>
     </div>
 </footer>
     @livewireScripts

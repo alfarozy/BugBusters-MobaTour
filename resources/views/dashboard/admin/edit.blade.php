@@ -21,7 +21,7 @@
                     <div class="">
                         <label class="block text-sm text-gray-600" for="name">Nama</label>
                         <input
-                            class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded @error('name') border border-red-500 @enderror"
+                            class="w-full px-5 py-2 text-gray-700 border rounded @error('name') border border-red-500 @enderror"
                             id="name" name="name" type="text" value="{{ old('name') ?? $data->name }}"
                             placeholder="Nama Admin" aria-label="Nama">
                         @error('name')
@@ -32,7 +32,7 @@
                     <div class="mt-2">
                         <label class="block text-sm text-gray-600" for="email">Email</label>
                         <input
-                            class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded @error('email') border border-red-500 @enderror"
+                            class="w-full px-5 py-2 text-gray-700 border rounded @error('email') border border-red-500 @enderror"
                             id="email" name="email" type="text" value="{{ old('email') ?? $data->email }}"
                             placeholder="Email Admin" aria-label="Email">
                         @error('email')
@@ -43,7 +43,7 @@
                     <div class="mt-2">
                         <label class=" block text-sm text-gray-600" for="password">Password (opsional)</label>
                         <input
-                            class="w-full px-5 py-2 text-gray-700 bg-gray-200 rounded @error('password') border border-red-500 @enderror"
+                            class="w-full px-5 py-2 text-gray-700 border rounded @error('password') border border-red-500 @enderror"
                             id="password" name="password" type="password" placeholder="Password" aria-label="Password">
                         @error('password')
                             <small class="text-red-500">{{ $message }}</small>
