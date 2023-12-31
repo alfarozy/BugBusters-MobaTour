@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserTournament;
+use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Models\UserTournament;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('member.index');
+        $data = [
+            'total_tournament' => UserTournament::where('status', 'active')->where('user_id', Auth()->id())->count(),
+            'total_transaction' => Order::where('user_id', Auth()->id())->count()
+        ];
+        return view('member.index', $data);
     }
     public function indexAdmin()
     {
