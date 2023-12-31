@@ -10,8 +10,8 @@
 
     <!-- Tailwind -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    
-@yield('style')
+
+    @yield('style')
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
@@ -65,7 +65,9 @@
                 <button x-show="isOpen" @click="isOpen = false"
                     class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    <a href="{{ route('profile.index') }}" class="block px-4 py-2 account-link hover:text-white">Edit Profile</a>
+
+                    <a href="{{ route('profile.index') }}" class="block px-4 py-2 account-link hover:text-white">Edit
+                        Profile</a>
                     <a href="{{ route('logout') }}" class="block px-4 py-2 account-link hover:text-white">Logout</a>
                 </div>
             </div>

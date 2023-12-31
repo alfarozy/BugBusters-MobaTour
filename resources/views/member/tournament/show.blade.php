@@ -24,7 +24,7 @@
                     </div>
                     <div>
 
-                        <label for="user-name" class="block font-semibold mb-1">Whhatsapp</label>
+                        <label for="user-name" class="block font-semibold mb-1">Whatsapp</label>
                         <div id="user-name" class="text-grey-600">{{ $data->whatsapp }}</div>
                     </div>
 
@@ -112,13 +112,12 @@
                     <br>
                     <hr>
                     <div class="mt-5">
-                        
 
-                       @if ($data->type == 'premium')
+
+                        @if ($data->type == 'premium')
                             <button type="button"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Bayar
-                            Sekarang</button>
-                        
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Bayar
+                                Sekarang</button>
                         @endif
 
                     </div>

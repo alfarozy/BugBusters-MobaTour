@@ -209,7 +209,19 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="mt-6">
+                                @if ($data->type == 'premium')
+                                    <div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-4"
+                                        role="alert">
+                                        <p class="font-bold">Info Pendaftaran:</p>
+                                        <p>Penting! Untuk melanjutkan pendaftaran, Anda akan dikenakan biaya sebesar
+                                            <b>{{ currencyIDR($data->price) }}</b>
+                                            per tim.
+                                        </p>
+                                    </div>
+                                @endif
+
                                 <button class="px-4 py-2 text-white font-light tracking-wider bg-blue-600 rounded"
                                     type="submit">Registrasi sekarang</button>
                             </div>

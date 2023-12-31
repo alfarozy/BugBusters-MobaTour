@@ -1,5 +1,5 @@
-@extends('layouts.dashboard')
-@section('title', 'Registrasi turnamen')
+@extends('layouts.member')
+@section('title', 'History transaksi')
 @section('style')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.tailwindcss.min.css">
@@ -9,7 +9,6 @@
         <div class="flex items-center justify-between mb-6">
             <!-- Left side - Title -->
             <h1 class="text-3xl text-black">@yield('title')</h1>
-
         </div>
 
 
@@ -30,34 +29,31 @@
                 <table id="table" class="min-w-full bg-white pt-4">
                     <thead class="bg-gray-800 text-white">
                         <tr>
-                            <th width="5%" class="text-left py-3 px-4 uppercase font-semibold text-sm">No.</th>
-                            <th width="25%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Turnamen
-                            </th>
-                            <th width="20%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tim</th>
-                            <th width="15%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal
-                                Pendaftaran
-                            </th>
-                            <th width="15%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
-                            <th width="20%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
+                            <th width="5%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Invoice</th>
+                            <th width="30%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Turnamen</th>
+                            <th width="15%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Nominal</th>
+                            <th width="19%" class="text-left py-3 px-4 uppercase font-semibold text-sm">Tanggal</th>
+                            <th width="19%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Status</th>
+                            <th width="15%" class="text-center py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="text-gray-700">
                         @foreach ($data as $item)
                             <tr>
-                                <td class="text-left py-3 px-4">{{ $loop->iteration }}</td>
+                                <td class="text-left py-3 px-4">{{ $item->invoice }}</td>
                                 <td class="text-left py-3 px-4">{{ $item->tournament->title }}</td>
-                                <td class="text-left py-3 px-4">{{ $item->team_name }}</td>
+                                <td class="text-left py-3 px-4">{{ currencyIDR($item->price) }}</td>
                                 <td class="text-left py-3 px-4">
-                                    {{ $item->created_at->translatedFormat('d M Y') }}
+                                    <small>{{ $item->order_date }}</small>
                                 </td>
                                 <td class="text-center py-3 px-4">
-                                    @if ($item->order->status == 'PAYMENT_ACCEPTED')
+                                    @if ($item->status == 'PAYMENT_ACCEPTED')
                                         <span
                                             class="w-100 bg-green-500 text-white px-3 py-1 text-xs rounded-full ml-2">Success</span>
-                                    @elseif($item->order->status == 'EXPIRED')
+                                    @elseif($item->status == 'EXPIRED')
                                         <span
                                             class="w-100 bg-yellow-500 text-white px-3 py-1 text-xs rounded-full ml-2">Expired</span>
-                                    @elseif($item->order->status == 'UNPAID')
+                                    @elseif($item->status == 'UNPAID')
                                         <span
                                             class="w-100 bg-yellow-500 text-white px-3 py-1 text-xs rounded-full ml-2">Unpaid</span>
                                     @else
@@ -66,8 +62,7 @@
                                     @endif
                                 </td>
                                 <td class="text-center py-3 px-4">
-                                    {{-- Tombol Edit --}}
-                                    <a href="{{ route('dashboard.register-tournament.admin.show', $item->code) }}"
+                                    <a href="{{ route('orders.show', $item->invoice) }}"
                                         class="bg-blue-500 mx-2 text-white px-4 py-2 rounded-md text-sm">
                                         <i class="fas fa-address-card"></i>
                                     </a>

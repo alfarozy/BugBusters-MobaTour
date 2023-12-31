@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\TournamentRegistrationController;
 
 /*
@@ -35,6 +36,7 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::resource('member-tournaments', TournamentRegistrationController::class)->only('index', 'show');
 
+    Route::resource('orders', OrderController::class)->only('index', 'show');
     //> registrasi turnamen
     Route::get('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registration'])->name('tournament.registration');
     Route::post('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registrationAct'])->name('tournament.registration');
@@ -44,6 +46,7 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
 Route::prefix('dashboard/admin')->middleware('auth:admin')->group(function () {
     Route::get('/', [DashboardController::class, 'indexAdmin'])->name('dashboard.index.admin');
     Route::get('/register-tournament', [DashboardController::class, 'registerTournament'])->name('dashboard.register-tournament.admin');
+    Route::get('/register-tournament/{code}', [DashboardController::class, 'detailRegisterTournament'])->name('dashboard.register-tournament.admin.show');
     Route::get('/members', [MemberController::class, 'index'])->name('member.index');
     Route::get('/members/{id}', [MemberController::class, 'show'])->name('member.show');
 

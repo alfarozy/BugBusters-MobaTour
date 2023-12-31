@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Tournament;
 use App\Models\UserTournament;
 use Illuminate\Http\Request;
+use Xendit\Xendit;
+
 
 class TournamentRegistrationController extends Controller
 {
@@ -72,17 +75,50 @@ class TournamentRegistrationController extends Controller
 
         if ($data->type == Tournament::TYPE_FREE) {
             $attr['status'] = 'active';
+            $price = 0;
+            $statusOrder = 'PAYMENT_ACCEPTED';
         } else {
             $attr['status'] = 'pending';
-            //> create order
+            $price = $data->price;
+            $statusOrder = 'UNPAID';
         }
 
         $userTournament = UserTournament::create($attr);
 
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'tournament_id' => $data->id,
+            'user_tournament_id' => $userTournament->id,
+            'invoice' => randomIdTransaction(),
+            'price' => $price,
+            'order_date' => now(),
+            'payment_date' => now(),
+            'expired_date' => now(),
+            'invoice_url' => null,
+            'status' => $statusOrder
+        ]);
         if ($data->type == Tournament::TYPE_FREE) {
             return redirect()->route('member-tournaments.index')->with('success', 'Berhaasil mendaftar.');
         } else {
-            return redirect()->route('member-tournaments.show', $userTournament->code)->with('success', 'Mohon selesaikan pembayaran untuk melanjutkan');
+            Xendit::setApiKey(env('XENDIT_API_KEY'));
+            $create_invoice_request = [
+                'external_id' => $order->invoice,
+                'description' => "Biaya registrasi turnamen " . $data->title,
+                'payer_email' => auth()->user()->email,
+                'amount' => $price,
+                'invoice_duration' => 86400,
+                'should_send_email' => false,
+                'currency' => 'IDR',
+                'success_redirect_url' => env('APP_URL') . '/orders/' . $data->invoice,
+                'reminder_time' => 1,
+                'metadata' => [
+                    'branch_code' => 'mobatourney'
+                ]
+            ];
+            $result = \Xendit\Invoice::create($create_invoice_request);
+            $order->update(['invoice_url' => $result['invoice_url']]);
+            $redirectTo = $result['invoice_url'];
+            return redirect()->to($redirectTo);
         }
     }
 }

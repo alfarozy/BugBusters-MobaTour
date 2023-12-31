@@ -5,19 +5,19 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div class="bg-white rounded-lg shadow p-4">
                 <h2 class="text-xl font-bold mb-2">Pengguna</h2>
-                <p class="text-gray-700">2.134</p>
+                <p class="text-gray-700">{{ $total_member }}</p>
             </div>
             <div class="bg-white rounded-lg shadow p-4">
                 <h2 class="text-xl font-bold mb-2">Turnamen</h2>
-                <p class="text-gray-700">2.134</p>
+                <p class="text-gray-700">{{ $total_tournament }}</p>
             </div>
             <div class="bg-white rounded-lg shadow p-4">
                 <h2 class="text-xl font-bold mb-2">Registrasi turnamen</h2>
-                <p class="text-gray-700">2.134</p>
+                <p class="text-gray-700">{{ $total_transaction }}</p>
             </div>
             <div class="bg-white rounded-lg shadow p-4">
                 <h2 class="text-xl font-bold mb-2">Profit</h2>
-                <p class="text-gray-700">2.134</p>
+                <p class="text-gray-700">{{ currencyIDR($total_revenue) }}</p>
             </div>
 
         </div>
@@ -42,16 +42,16 @@
         var lineChart = new Chart(lineChartEl, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May'],
+                labels: {!! json_encode($labels) !!},
                 datasets: [{
                     label: 'Premium Registrations',
                     borderColor: 'rgb(252,108,4)',
-                    data: [200, 300, 250, 350, 400], // Update with your premium registration data
+                    data: {!! json_encode($datasets['premium']) !!}, // Update with your premium registration data
                     fill: false,
                 }, {
                     label: 'Free Registrations',
                     borderColor: 'rgb(44,124,236)',
-                    data: [300, 400, 350, 450, 600], // Update with your free registration data
+                    data: {!! json_encode($datasets['free']) !!}, // Update with your free registration data
                     fill: false,
                 }]
             },
