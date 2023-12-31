@@ -29,25 +29,31 @@
 
 
     <footer class="wow fadeInUp relative z-10 bg-[#090E34]" data-wow-delay=".15s">
-
-        <div class="mt-12 border-t bg-[#8890A4] border-opacity-40 py-8 lg:mt-[60px]">
-            <div class="container">
-                <div class="-mx-4 flex flex-wrap">
-                    <div class="w-full px-4 md:w-2/3 lg:w-1/2">
-                        <div class="my-1">
-                            <div class="-mx-3 flex items-center justify-center md:justify-start">
-                                <a href="javascript:void(0)"
-                                    class="px-3 text-base text-gray-7 hover:text-white hover:underline">
-                                    Copyright Mobatourney.id
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center justify-between">
+            <a href="https://flowbite.com/" class="gap-4 flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="/image/logo.svg" alt="logo" width="50px" class="header-logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">Mobatourney</span>
+            </a>
+            <ul bg- class="flex flex-wrap items-center mb-6 text-md font-medium text-white sm:mb-0 text-white gap-4">
+                <li >
+                    <a href="#" class="hover:underline mx-4">About</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline mx-4">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline mx-4">Licensing</a>
+                </li>
+                <li>
+                    <a href="#" class="hover:underline">Contact</a>
+                </li>
+            </ul>
         </div>
-    </footer>
+        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <span class="block text-sm text-white text-center dark:text-white">© 2023 <a href="" class="hover:underline">MobaTourney™</a>. All Rights Reserved.</span>
+    </div>
+</footer>
     @livewireScripts
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
