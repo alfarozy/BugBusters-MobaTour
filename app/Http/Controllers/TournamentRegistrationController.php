@@ -25,6 +25,9 @@ class TournamentRegistrationController extends Controller
     {
 
         $data = Tournament::whereSlug($slug)->firstOrFail();
+        if (isExpired($data->end_register_date)) {
+            return abort(404);
+        }
         return view('member.tournament.registration', compact('data'));
     }
 
@@ -98,7 +101,7 @@ class TournamentRegistrationController extends Controller
             'status' => $statusOrder
         ]);
         if ($data->type == Tournament::TYPE_FREE) {
-            return redirect()->route('member-tournaments.index')->with('success', 'Berhaasil mendaftar.');
+            return redirect()->route('orders.show', $order->invoice)->with('success', 'Registrasi berhasil, silahkan tunggu info selanjutnya kami akan mengabari anda melalui whatsapp.');
         } else {
             Xendit::setApiKey(env('XENDIT_API_KEY'));
             $create_invoice_request = [
@@ -109,7 +112,7 @@ class TournamentRegistrationController extends Controller
                 'invoice_duration' => 86400,
                 'should_send_email' => false,
                 'currency' => 'IDR',
-                'success_redirect_url' => env('APP_URL') . '/orders/' . $data->invoice,
+                'success_redirect_url' => env('APP_URL') . '/dashboard/orders/' . $order->invoice,
                 'reminder_time' => 1,
                 'metadata' => [
                     'branch_code' => 'mobatourney'
