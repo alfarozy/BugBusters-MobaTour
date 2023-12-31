@@ -9,6 +9,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Homepage\ListTournaments;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::get('/tournament', [HomeController::class, 'tournament'])->name('home.tournaments.index');
+Route::get('/tournament', ListTournaments::class)->name('home.tournaments.index');
 Route::get('/tournament/{slug}', [HomeController::class, 'detailTournament'])->name('home.tournaments.show');
 
 
