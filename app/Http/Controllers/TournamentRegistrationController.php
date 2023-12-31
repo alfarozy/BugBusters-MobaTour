@@ -47,8 +47,8 @@ class TournamentRegistrationController extends Controller
             'player_4_id' => 'required|string|max:255',
             'player_5_nickname' => 'required|string|max:255',
             'player_5_id' => 'required|string|max:255',
-            'player_alternative_nickname' => 'required|string|max:255',
-            'player_alternative_id' => 'required|string|max:255',
+            'player_alternative_nickname' => 'sometimes|nullable|string|max:255',
+            'player_alternative_id' => 'sometimes|nullable|string|max:255',
         ], [
             'required' => ':attribute wajib diisi.',
             'exists' => ':attribute yang dipilih tidak valid.',

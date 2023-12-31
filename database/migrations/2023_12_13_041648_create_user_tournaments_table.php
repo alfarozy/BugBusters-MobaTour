@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('player_4_id');
             $table->string('player_5_nickname');
             $table->string('player_5_id');
-            $table->string('player_alternative_nickname');
-            $table->string('player_alternative_id');
+            $table->string('player_alternative_nickname')->nullable();
+            $table->string('player_alternative_id')->nullable();
             $table->enum('status', ['active', 'pending', 'cancel'])->default('pending');
             $table->timestamps();
         });

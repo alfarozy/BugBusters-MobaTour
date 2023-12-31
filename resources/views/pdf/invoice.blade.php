@@ -62,7 +62,7 @@
                     <tr style="font-weight: bold;">
                         <td style="vertical-align: top;">ID transaksi</td>
                         <td style="vertical-align: top;">:</td>
-                        <td style="vertical-align: top;">{{ $idTransaction }}</td>
+                        <td style="vertical-align: top;">{{ $invoice }}</td>
                     </tr>
                     <tr>
                         <td style="vertical-align: top;">Diterbitkan oleh</td>
@@ -83,6 +83,16 @@
                         <td style="vertical-align: top;">:</td>
                         <td style="vertical-align: top;">{{ $memberName }}</td>
                     </tr>
+                    <tr style="font-weight: bold;">
+                        <td style="vertical-align: top;">Nama Member</td>
+                        <td style="vertical-align: top;">:</td>
+                        <td style="vertical-align: top;">{{ $email }}</td>
+                    </tr>
+                    <tr style="font-weight: bold;">
+                        <td style="vertical-align: top;">Kode Registrasi</td>
+                        <td style="vertical-align: top;">:</td>
+                        <td style="vertical-align: top;">{{ $code }}</td>
+                    </tr>
 
                 </table>
             </td>
@@ -93,17 +103,21 @@
 
             <tr style="font-weight: bold;color: #130CB7; background-color: #E5EBFF;">
                 <td style="padding: 14px 0 14px 30px;">Tournamen</td>>
-                <td style="padding: 14px 0 14px 30px;">Harga</td>
+                <td style="padding: 14px 0 14px 30px;">Nama Team</td>>
+                <td style="padding: 14px 30px 14px 0px;">Harga</td>
             </tr>
             <tr>
                 <td style="font-weight: bold;padding: 14px 0 14px 30px;">
                     <span class="d-block">{{ $tournament }}</span>
                 </td>
-                <td class="text-center"> Rp{{ number_format($price, 0, ',', '.') }}</td>
+                <td style="font-weight: bold;padding: 14px 0 14px 30px;">
+                    <span class="d-block">{{ $teamName }}</span>
+                </td>
+                <td class="text-center" style="padding: 14px 30px 14px 0px;">
+                    Rp{{ number_format($total_price, 0, ',', '.') }}</td>
             </tr>
 
             <tr style="font-weight: bold;">
-                <td class="border-line"></td>
                 <td class="border-line"></td>
                 <td class="text-right border-line" style="padding: 14px 0;">Total Pembayaran</td>
                 <td class="text-right border-line" style="padding: 14px 30px 14px 0px;">
