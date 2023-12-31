@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="/image/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="/homepage/assets/css/animate.css" />
     <link rel="stylesheet" href="/homepage/assets/css/tailwind.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 
     <!-- ==== WOW JS ==== -->
     <script src="/homepage/assets/js/wow.min.js"></script>
@@ -70,6 +71,8 @@
         //  wow js
         new WOW().init();
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 </body>
 
 </html>
