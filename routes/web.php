@@ -36,8 +36,8 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
     Route::resource('member-tournaments', TournamentRegistrationController::class)->only('index', 'show');
 
     //> registrasi turnamen
-    Route::get('/registrasi-tournamen/{slug}', [DashboardController::class, 'registration'])->name('tournament.registration');
-    Route::post('/registrasi-tournamen/{slug}', [DashboardController::class, 'registrationAct '])->name('tournament.registration');
+    Route::get('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registration'])->name('tournament.registration');
+    Route::post('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registrationAct'])->name('tournament.registration');
 });
 
 //> dashboard admin
