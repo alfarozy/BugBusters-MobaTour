@@ -9,6 +9,12 @@
 
         <div class="bg-white p-6 rounded-lg shadow-md">
 
+            @if (session('success'))
+                <div class="bg-green-200 text-green-800 p-4 mb-4 rounded">
+                    {{ session('success') }}
+                </div>
+            @endif
+            
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <div>

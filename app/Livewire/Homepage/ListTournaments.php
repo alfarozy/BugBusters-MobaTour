@@ -34,15 +34,15 @@ class ListTournaments extends Component
     public function render()
     {
         if ($this->filter == 'latest') {
-            $turnaments = Tournament::latest()->where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->paginate(2);
+            $turnaments = Tournament::latest()->where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->paginate(9);
         } else if ($this->filter == 'oldest') {
-            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->paginate(2);
+            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->paginate(9);
         } else if ($this->filter == 'free') {
-            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('type', 'free')->where('is_active', 1)->paginate(2);
+            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('type', 'free')->where('is_active', 1)->paginate(9);
         } else if ($this->filter == 'premium') {
-            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('type', 'premium')->where('is_active', 1)->paginate(2);
+            $turnaments = Tournament::oldest()->where('title', 'LIKE', '%' . $this->search . '%')->where('type', 'premium')->where('is_active', 1)->paginate(9);
         } else {
-            $turnaments = Tournament::where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->orderBy('id', 'desc')->paginate(2);
+            $turnaments = Tournament::where('title', 'LIKE', '%' . $this->search . '%')->where('is_active', 1)->orderBy('id', 'desc')->paginate(9);
         }
 
         return view('livewire.homepage.list-tournaments', [
