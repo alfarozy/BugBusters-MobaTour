@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MemberController;
 use App\Livewire\Homepage\ListTournaments;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TournamentController;
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\TournamentRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +33,11 @@ Route::prefix('dashboard')->middleware(['checkGoogleRegister', 'auth'])->group(f
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-     //> registrasi turnamen
-     Route::get('/registrasi-tournamen/{slug}', [DashboardController::class, 'registration'])->name('tournament.registration');
-     Route::post('/registrasi-tournamen/{slug}', [DashboardController::class, 'registrationAct '])->name('tournament.registration');
+    Route::resource('member-tournaments', TournamentRegistrationController::class)->only('index', 'show');
+
+    //> registrasi turnamen
+    Route::get('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registration'])->name('tournament.registration');
+    Route::post('/registrasi-tournamen/{slug}', [TournamentRegistrationController::class, 'registrationAct'])->name('tournament.registration');
 });
 
 //> dashboard admin

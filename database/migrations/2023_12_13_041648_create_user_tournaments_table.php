@@ -16,6 +16,21 @@ return new class extends Migration
             $table->foreignId('user_id');
             $table->foreignId('tournament_id');
             $table->string('code');
+            $table->string('team_name');
+            $table->string('whatsapp');
+            $table->string('player_captain_nickname');
+            $table->string('player_captain_id');
+            $table->string('player_2_nickname');
+            $table->string('player_2_id');
+            $table->string('player_3_nickname');
+            $table->string('player_3_id');
+            $table->string('player_4_nickname');
+            $table->string('player_4_id');
+            $table->string('player_5_nickname');
+            $table->string('player_5_id');
+            $table->string('player_alternative_nickname');
+            $table->string('player_alternative_id');
+            $table->enum('status', ['active', 'pending'])->default('pending');
             $table->timestamps();
         });
     }
